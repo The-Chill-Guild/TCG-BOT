@@ -14,7 +14,7 @@ class ModMail(commands.Cog):
 
 db = sqlite3.connect('modmail.db')
 cursor = db.cursor()
-# Must run this snippet only once then comment it
+
 # cursor.execute("""
 #     CREATE TABLE modmail (
 #         user_id int,
