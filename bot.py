@@ -8,7 +8,7 @@ import os
 load_dotenv('.env')
 
 bot = commands.Bot(command_prefix = '.', intents=discord.Intents.all())
-bot_status = cycle(['DM ModMail'])
+bot_status = cycle(['DM ModMail', '.help'])
 
 @tasks.loop(hours=1)
 async def change_status():
@@ -19,6 +19,11 @@ async def on_ready():
     await bot.tree.sync()
     print('Bot is ready.')
     change_status.start()
+
+async def load():
+    for filename in os.listdir('./cogs'):
+        if filename.endswith('.py'):
+           await bot.load_extension(f'cogs.{filename[:-3]}')
 
 async def main():
     async with bot:
