@@ -15,12 +15,12 @@ class ModMail(commands.Cog):
 db = sqlite3.connect('modmail.db')
 cursor = db.cursor()
 # Must run this snippet only once then comment it
-cursor.execute("""
-     CREATE TABLE modmail (
-         user_id int,
-         channel_id int
-      )
-""")
+# cursor.execute("""
+#      CREATE TABLE modmail (
+#          user_id int,
+#          channel_id int
+#       )
+# """)
 
 def check(key):
     if key is None:
